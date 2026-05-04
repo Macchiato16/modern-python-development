@@ -13,13 +13,13 @@ Practice modern Python as an engineering workflow, not as isolated style advice.
 
 When creating a new Python project, default to `uv` for project management, dependency management, virtualenv handling, lock files, and command execution unless the user or repository explicitly chooses another tool. Establish the quality workflow before adding meaningful features:
 
-1. Choose the package name and Python target version with the user or repository constraints.
+1. For an empty project, initialize Git first. Then choose the package name and Python target version with the user or repository constraints.
 2. Initialize project metadata in `pyproject.toml`, pin the Python version, and commit a lock file when the package manager supports it.
 3. Create `src/<package_name>/` and `tests/` immediately. Add a tiny importable module and one test so imports, packaging, and pytest discovery are verified from the start.
-4. Add development dependencies for Ruff, mypy, pytest, pytest-cov, and pre-commit. Keep runtime dependencies separate from development dependencies.
+4. Look up current recommended versions for Ruff, mypy, pytest, pytest-cov, and pre-commit, then add them as development dependencies. Keep runtime dependencies separate from development dependencies.
 5. Configure Ruff, mypy, pytest, and coverage in `pyproject.toml`.
 6. Add `.gitignore` entries for virtualenvs, caches, coverage data, and build outputs. Do not ignore `pyproject.toml`, lock files, source, tests, docs, or CI config.
-7. Add `.pre-commit-config.yaml` for fast local checks.
+7. Add `.pre-commit-config.yaml` for fast local checks, then install the Git hook.
 8. Add CI that runs locked dependency sync, Ruff format check, Ruff lint, mypy, and pytest with coverage.
 9. Run the full local verification sequence once before calling the scaffold complete. After that, use normal pre-commit hooks through `git commit` or `pre-commit run` instead of repeating all-files checks constantly.
 
