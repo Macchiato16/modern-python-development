@@ -1,0 +1,4 @@
+interface:
+  display_name: "Modern Python Development"
+  short_description: "Modern Python engineering workflow"
+  default_prompt: "Use $modern-python-development to implement or review a Python change with modern engineering standards."
